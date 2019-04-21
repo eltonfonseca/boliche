@@ -15,13 +15,13 @@ class Frame
     # Pergunta se houve um Strike
     # @return [true, false] retorna true ou false se houve ou não um Strike
     def strike?
-        @jogadas[0] == 10
+        @jogadas[0].down_pin == 10
     end
 
     # Pergunta se houve um Spare
     # @return [true, false] retorna true ou false se houve ou não um Spare
     def spare?
-        if !strike? && @score == 10
+        if !strike? && score == 10
             true
         else
             false
@@ -31,6 +31,6 @@ class Frame
     # Calcula o Score total das jogadas
     # @return [Fixnum] retorna o total de jogadas feitas
     def score
-        @score = @jogadas[0] + @jogadas[1]
+        @score = @jogadas[0].down_pin + @jogadas[1].down_pin
     end
 end
