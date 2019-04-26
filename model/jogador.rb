@@ -17,14 +17,19 @@ class Jogador
     # @return [Integer] retorna a maior pontuacao
     attr_reader :maxPontuacao
 
+    # @return [Integer] retorna o tipo de jogador
+    attr_reader :tipoJogador
+
     # @param nome [String] nome do jogador
     # @param idade [Integer] idade do jogador
     # @param jogos [Integer] quantidade de partidas jogadas
     # @param maxPontuacao [Integer] maior pontuação do jogador
-    def initialize(nome, idade, jogos, maxPontuacao)
+    # @param tipoJogador [Integer] tipo de jogador
+    def initialize(nome, idade, jogos, maxPontuacao, tipoJogador)
         @nome          = nome
         @idade         = idade
         @jogos         = jogos
         @maxPontuacao  = maxPontuacao
+        @tipoJogador   = tipoJogador
     end
 end
