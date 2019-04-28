@@ -80,4 +80,7 @@ class Partida
         bot = Jogador.new(nome, idade, 0, 0, 2)
     end  
     
+    def bonus(index)
+        
+    end
 end

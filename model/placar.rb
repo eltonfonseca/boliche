@@ -7,8 +7,8 @@ class Placar
     attr_reader :frames
 
     # Construtor
-    def initialize(frames)
-        @frames = frames
+    def initialize
+        @frames = Array.new(12)
     end
 
 end

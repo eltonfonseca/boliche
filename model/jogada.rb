@@ -23,7 +23,7 @@ class Jogada
     # Metodo responsavel pelo lançamento da bola
     # @return [void] Função atualiza valores das variáveis down_pin e up_pin 
     def lancarBola
-        @down_pin = rand(@up_pin + 1)
+        @down_pin = 5 #rand(@up_pin + 1)
         @up_pin = @up_pin - @down_pin
     end
 end

@@ -4,7 +4,7 @@ class Frame
 
     # Responsavel por armazenar o valor da pontuação total
     # @return [Fixnum] retorna o total do Score
-    attr_reader :score
+    attr_accessor :score
 
     attr_accessor :jogadas
 

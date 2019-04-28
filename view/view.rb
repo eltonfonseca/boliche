@@ -30,11 +30,27 @@ class View
         loop do
             puts "Digite J para jogar"
             c = gets.to_s.chomp
-        break if c.downcase == "j"
+            break if c.downcase == "j"
         end
     end
 
     def informaJogada(frame, jogada)
         puts "Jogada #{jogada} do frame #{frame + 1}"
+    end
+
+    def pontuacaoJogada(score)
+        puts "Você fez #{score} pontos nessa jogada"
+    end
+
+    def showScore(score)
+        puts "Seu score nesse frame foi: #{score}"
+    end
+
+    def showStrike
+        puts "Você fez um Strike!"
+    end
+
+    def showSpare
+        puts "Você fez um Spare!"
     end
 end
