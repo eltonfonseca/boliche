@@ -6,6 +6,8 @@ class Frame
     # @return [Fixnum] retorna o total do Score
     attr_reader :score
 
+    attr_accessor :jogadas
+
     # Construtor
     # @param jogadas [Array<Jogada>] Jogadas que o jogador fez
     def initialize(jogadas)
