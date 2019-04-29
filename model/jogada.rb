@@ -4,11 +4,11 @@ class Jogada
 
     # Pinos derrubados
     # @return [Fixnum] armazena um valor inteiro de pinos derrubados
-    attr_reader :down_pin
+    attr_accessor :down_pin
 
     # Pinos que sobraram
     # @return [Fixnum] armazena um valor inteiro de pinos que sobraram
-    attr_reader :up_pin
+    attr_accessor :up_pin
 
     # Construtor
     # @param jogador [Jogador] Jogador que fará a jogada
@@ -23,7 +23,7 @@ class Jogada
     # Metodo responsavel pelo lançamento da bola
     # @return [void] Função atualiza valores das variáveis down_pin e up_pin 
     def lancarBola
-        @down_pin = 5 #rand(@up_pin + 1)
+        @down_pin = rand(@up_pin + 1)
         @up_pin = @up_pin - @down_pin
     end
 end

@@ -8,7 +8,7 @@ class Placar
 
     # Construtor
     def initialize
-        @frames = Array.new(12)
+        @frames = Array.new(11)
     end
 
 end
