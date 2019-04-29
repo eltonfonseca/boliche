@@ -59,48 +59,59 @@ class View
     end
 
     def showPlacar(placares)
+        total = Array.new(12)
         score = Array.new(12)
         pontosJogada0 = Array.new(12)
         pontosJogada1 = Array.new(12)
         for i in 0..0  
             for j in 0..9
-                if placares[i].frames[j].jogadas[0].down_pin == 10
-                    pontosJogada0[j] = "X"
-                else
-                    pontosJogada0[j] = placares[i].frames[j].jogadas[0].down_pin
+                pontosJogada0[j] = placares[i].frames[j].jogadas[0].down_pin
+                pontosJogada1[j] = placares[i].frames[j].jogadas[1].down_pin
+                score[j] = placares[i].frames[j].scoreTotal.to_s
+                sum = 0
+                for x in 0..j
+                    sum += score[x].to_i
                 end
-                if placares[i].frames[j].jogadas[1].down_pin == 10
-                    pontosJogada1[j] = "X"
-                else
-                    pontosJogada1[j] = placares[i].frames[j].jogadas[1].down_pin
-                end
-                if placares[i].frames[j].jogadas[0].down_pin == 0
-                    pontosJogada0[j] = "-"
-                else
-                    pontosJogada0[j] = placares[i].frames[j].jogadas[0].down_pin
-                end
-                if placares[i].frames[j].jogadas[1].down_pin == 0
-                    pontosJogada1[j] = "-"
-                else
-                    pontosJogada1[j] = placares[i].frames[j].jogadas[1].down_pin
-                end
-                if placares[i].frames[j].scoreTotal == 0
-                    score[j] = "-"
-                end
-                if placares[i].frames[j].scoreTotal.to_s.size == 2
-                    score[j] = " " + placares[i].frames[j].scoreTotal.to_s    
-                end
-                if placares[i].frames[j].scoreTotal.to_s.size == 1
-                    score[j] = "  " + placares[i].frames[j].scoreTotal.to_s
-                end
-                if placares[i].frames[j].scoreTotal.to_s.size == 1
-                    score[j] = placares[i].frames[j].scoreTotal.to_s
+                total[j] = sum
+                for x in 0..11
+                    if pontosJogada0[x] == 10
+                        pontosJogada0[x] = "X"
+                    end
+                    if pontosJogada0[x] == 0
+                        pontosJogada0[x] = "-"
+                    end
+                    if pontosJogada0[x] == nil
+                        pontosJogada0[x] = "-"
+                    end
+
+                    if pontosJogada1[x] == 10
+                        pontosJogada1[x] = "X"
+                    end
+                    if pontosJogada1[x] == 0
+                        pontosJogada1[x] = "-"
+                    end
+                    if pontosJogada1[x] == nil
+                        pontosJogada1[x] = "-"
+                    end
                 end
             end
+
+            for j in 0..11
+                if total[j].to_s.size == 1
+                    total[j] = " " + total[j].to_s + "   "
+                end
+                if total[j].to_s.size == 2
+                    total[j] = " " + total[j].to_s + "  "
+                end
+                if total[j].to_s.size == 3
+                    total[j] = " " + total[j].to_s + " "
+                end
+            end
+
             puts "     _____________________________________________________________"
             puts "    |__1__|__2__|__3__|__4__|__5__|__6__|__7__|__8__|__9__|__10___|"
-            puts "    |  #{pontosJogada0[0]}|#{pontosJogada1[0]}|  #{pontosJogada0[1]}|#{pontosJogada1[1]}|  #{pontosJogada0[2]}|#{pontosJogada1[2]}|  #{pontosJogada0[3]}|#{pontosJogada1[3]}|  #{pontosJogada0[4]}|#{pontosJogada1[4]}|  #{pontosJogada0[5]}|#{pontosJogada1[5]}|  #{pontosJogada0[6]}|#{pontosJogada1[6]}|  #{pontosJogada0[7]}|#{pontosJogada1[7]}|  #{pontosJogada0[8]}|#{pontosJogada1[8]}|  #{pontosJogada0[9]}|#{pontosJogada1[9]}|W|"
-            puts "    |#{score[0]}  |#{score[1]}  |#{score[2]}  |#{score[3]}  |#{score[4]}  |#{score[5]}  |#{score[6]}  |#{score[7]}  |#{score[8]}  | #{score[9]}   |"
+            puts "    |  #{pontosJogada0[0]}|#{pontosJogada1[0]}|  #{pontosJogada0[1]}|#{pontosJogada1[1]}|  #{pontosJogada0[2]}|#{pontosJogada1[2]}|  #{pontosJogada0[3]}|#{pontosJogada1[3]}|  #{pontosJogada0[4]}|#{pontosJogada1[4]}|  #{pontosJogada0[5]}|#{pontosJogada1[5]}|  #{pontosJogada0[6]}|#{pontosJogada1[6]}|  #{pontosJogada0[7]}|#{pontosJogada1[7]}|  #{pontosJogada0[8]}|#{pontosJogada1[8]}|  #{pontosJogada0[9]}|#{pontosJogada1[9]}| |"
+            puts "    |#{total[0]}|#{total[1]}|#{total[2]}|#{total[3]}|#{total[4]}|#{total[5]}|#{total[6]}|#{total[7]}|#{total[8]}| #{total[9]} |"
             puts "    '-----'-----'-----'-----'-----'-----'-----'-----'-----'-------'"
         end
     end
