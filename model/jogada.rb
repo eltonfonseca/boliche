@@ -4,11 +4,11 @@ class Jogada
 
     # Pinos derrubados
     # @return [Fixnum] armazena um valor inteiro de pinos derrubados
-    attr_reader :down_pin
+    attr_accessor :down_pin
 
     # Pinos que sobraram
     # @return [Fixnum] armazena um valor inteiro de pinos que sobraram
-    attr_reader :up_pin
+    attr_accessor :up_pin
 
     # Construtor
     # @param jogador [Jogador] Jogador que fará a jogada
