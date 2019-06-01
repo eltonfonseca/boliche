@@ -35,7 +35,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.0]
       t.string :nome
       t.integer :idade
       t.integer :qtd_jogos
-      t.boolean :tipo_user
+      t.boolean :tipo_user, default: false
       t.references :match, foreign_key: true
 
       t.timestamps null: false
