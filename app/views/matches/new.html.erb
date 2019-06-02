@@ -1,0 +1,27 @@
+<h1>Nova Partida</h1>
+
+<%= form_for(@match) do |f| %>
+  <% if @match.errors.any? %>
+  <div id="errorExplanation">
+    <h2><%= pluralize(@match.errors.count, "error") %> prohibited
+        this post from being saved:</h2>
+    <ul>
+    <% @match.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+  <% end %>
+ 
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :difficulty %>
+    <%= f.select :difficulty, {'Muito Facil': 1, 'Facil': 2, 'Dificil': 3, 'Muito Dificil': 4} %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

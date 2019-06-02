@@ -1,0 +1,20 @@
+<h1>Listando Partidas</h1>
+  
+<table>
+  <tr>
+    <th>Nome da Partida</th>
+    <th>Dificuldade</th>
+    <th></th>
+    <th></th>
+  </tr>
+ 
+<% @matches.each do |match| %>
+  <tr>
+    <td><%= match.name %></td>
+    <td><%= match.difficulty %></td>
+    <td><%= link_to 'Destroy',  match,  method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+ 
+<br />

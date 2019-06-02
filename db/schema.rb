@@ -13,6 +13,7 @@
 ActiveRecord::Schema.define(version: 20190601160315) do
 
   create_table "matches", force: :cascade do |t|
+    t.string   "name"
     t.integer  "difficulty"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
