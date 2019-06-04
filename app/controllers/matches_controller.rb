@@ -18,9 +18,10 @@ class MatchesController < ApplicationController
   def create
     @match = Match.new(match_params)
     @match.users << current_user
+    @match.users << Match.criaBOT(@match.difficulty)
     respond_to do |format|
       if @match.save
-        format.html { redirect_to matches_path, notice: 'Match was successfully created.' }
+        format.html { redirect_to matches_path, notice: 'Partida criada com sucesso' }
         format.json { render :show, status: :created, location: @match }
       else
         format.html { render :new }
@@ -34,7 +35,7 @@ class MatchesController < ApplicationController
   def destroy
     @match.destroy
       respond_to do |format|
-      format.html { redirect_to matches_path, notice: 'Recipe was successfully destroyed.' }
+      format.html { redirect_to matches_path, notice: 'Partida deletada com sucesso' }
       format.json { head :no_content }
       end
   end
