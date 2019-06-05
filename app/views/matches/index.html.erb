@@ -13,8 +13,15 @@
     <td><%= match.name %></td>
     <td><%= match.difficulty %></td>
     <td><%= link_to 'Destroy',  match,  method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to 'Jogar',  match_home_index_path(match) %></td>
   </tr>
 <% end %>
 </table>
  <%= link_to 'New Match', new_match_path %>
 <br />
+
+<% if user_signed_in? %>
+  <li>
+  <%= link_to('Logout', destroy_user_session_path, method: :delete) %>   
+  </li>
+<% end %>
