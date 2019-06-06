@@ -1,10 +1,29 @@
 <h1>Boliche</h1>
 <p>Bem vindo, <%= @current_user.nome %></p>
 
-<%= link_to 'Fazer a Jogada', new_match_path %>
+<div id='resultado'></div>
+
+<button id='btn-jogar'>Jogar</button>
 
 <% if user_signed_in? %>
   <li>
   <%= link_to('Logout', destroy_user_session_path, method: :delete) %>   
   </li>
 <% end %>
+
+<script>
+  $("#btn-jogar").on('click', function(){
+    $.ajax({
+          url : '<%= match_jogar_path %>',
+          type : 'post',
+     })
+     .done(function(msg){
+
+       var jogador = JSON.parse(JSON.stringify(msg))
+       $("#resultado").append(jogador[0].nome);
+     })
+     .fail(function(jqXHR, textStatus, msg){
+          alert(msg);
+     }); 
+})
+</script>

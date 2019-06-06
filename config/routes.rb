@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
+
   resources :matches do
     resources :home
+    post '/jogar' => 'jogada#new'
   end
   devise_for :users
   root to: 'matches#index'
