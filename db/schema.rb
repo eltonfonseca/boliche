@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190601160315) do
+ActiveRecord::Schema.define(version: 20190606220652) do
+
+  create_table "frames", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "jogadas", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "matches", force: :cascade do |t|
     t.string   "name"
@@ -22,6 +32,16 @@ ActiveRecord::Schema.define(version: 20190601160315) do
   create_table "matches_users", id: false, force: :cascade do |t|
     t.integer "match_id", null: false
     t.integer "user_id",  null: false
+  end
+
+  create_table "partidas", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "placars", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "scores", force: :cascade do |t|

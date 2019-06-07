@@ -4,7 +4,7 @@
 <div id='resultado'></div>
 
 <button id='btn-jogar'>Jogar</button>
-
+<% cookies[:i] = 0 %>
 <% if user_signed_in? %>
   <li>
   <%= link_to('Logout', destroy_user_session_path, method: :delete) %>   
@@ -21,6 +21,7 @@
 
        var jogador = JSON.parse(JSON.stringify(msg))
        $("#resultado").append(jogador[0].nome);
+       console.log(jogador);
      })
      .fail(function(jqXHR, textStatus, msg){
           alert(msg);
