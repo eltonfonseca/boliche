@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190606220652) do
+ActiveRecord::Schema.define(version: 20190608143306) do
 
   create_table "frames", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -27,6 +27,8 @@ ActiveRecord::Schema.define(version: 20190606220652) do
     t.integer  "difficulty"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "scoreP1"
+    t.integer  "scoreP2"
   end
 
   create_table "matches_users", id: false, force: :cascade do |t|
