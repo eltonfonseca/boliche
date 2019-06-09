@@ -1,5 +1,6 @@
 <nav class="navbar navbar-dark bg-dark">
+    <h5 style="color: white;">Bem vindo, <%= current_user.nome %></h5>
     <% if user_signed_in? %>
-        <%= link_to('Logout', destroy_user_session_path, method: :delete, style: 'color: white;') %>   
+        <%= link_to('Logout', destroy_user_session_path, method: :delete, class: 'btn btn-light') %>   
     <% end %>
 </nav>

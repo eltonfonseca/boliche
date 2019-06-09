@@ -1,19 +1,17 @@
 <%= render partial: 'shared/navbar' %>
-
-<h1>Boliche</h1>
-<p>Bem vindo, <%= @current_user.nome %></p>
+<div class="container-fluid">
+<h4>Boliche</h4>
 
 <% cookies[:i] = 0 %>
 <% cookies[:j1] = Match.find(params[:match_id]).users[0].nome %>
 <% cookies[:j2] = Match.find(params[:match_id]).users[1].nome %>
 
-<% if user_signed_in? %>
-  <li>
-  <%= link_to('Logout', destroy_user_session_path, method: :delete) %>   
-  </li>
-<% end %>
+<div id='resultado'></div>
+<div id='placar'></div>
 
-<button id='btn-jogar'>Jogar</button>
+<button id='btn-jogar' class="btn btn-primary">Jogar</button>
+<%= link_to 'Voltar', matches_path, class: 'btn btn-info' %>
+</div>
 
 <script>
   $("#btn-jogar").on('click', function(){
@@ -131,7 +129,3 @@
     })
 })
 </script>
-
-<div id='placar'>
-
-<div id='resultado'></div>
