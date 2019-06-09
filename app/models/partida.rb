@@ -1,8 +1,7 @@
 class Partida < ApplicationRecord
+    
     attr_accessor :jogadores
-
     attr_accessor :placares
-
     attr_accessor :dificuldade
 
     def initialize(match)   

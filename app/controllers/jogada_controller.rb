@@ -1,7 +1,6 @@
 class JogadaController < ApplicationController
 
   def new
-
     @match = Match.find(params[:match_id])
     @jogadores = Array.new(2)
     @jogadores[0] = @match.users[0]
