@@ -1,26 +1,26 @@
-<h1>Suas Partidas</h1>
-  
-<table>
-  <tr>
-    <th>Nome da Partida</th>
-    <th>Dificuldade</th>
-    <th></th>
-    <th></th>
-  </tr>
-<% @matches.each do |match| %>
-  <tr>
-    <td><%= match.name %></td>
-    <td><%= match.difficulty %></td>
-    <td><%= link_to 'Destroy',  match,  method: :delete, data: { confirm: 'Are you sure?' } %></td>
-    <td><%= link_to 'Jogar',  match_home_index_path(match) %></td>
-  </tr>
-<% end %>
-</table>
- <%= link_to 'New Match', new_match_path %>
-<br />
+<%= render partial: 'shared/navbar' %>
 
-<% if user_signed_in? %>
-  <li>
-  <%= link_to('Logout', destroy_user_session_path, method: :delete) %>   
-  </li>
-<% end %>
+<div class="container-fluid"> 
+  <h1>Suas Partidas</h1>
+    <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Nome da Partida</th>
+        <th scope="col">Dificuldade</th>
+        <th scope="col"></th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @matches.each do |match| %>
+        <tr>
+          <td><%= match.name %></td>
+          <td><%= match.difficulty %></td>
+          <td><%= link_to 'Deletar',  match,  method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %></td>
+          <td><%= link_to 'Jogar',  match_home_index_path(match), class: 'btn btn-success' %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+   <%= link_to 'New Match', new_match_path, class: 'btn btn-info' %>
+</div>

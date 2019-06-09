@@ -1,3 +1,5 @@
+<%= render partial: 'shared/navbar' %>
+
 <h1>Boliche</h1>
 <p>Bem vindo, <%= @current_user.nome %></p>
 
@@ -11,11 +13,7 @@
   </li>
 <% end %>
 
-<br>
-
 <button id='btn-jogar'>Jogar</button>
-
-<br>
 
 <script>
   $("#btn-jogar").on('click', function(){
@@ -135,8 +133,5 @@
 </script>
 
 <div id='placar'>
-
-
-
 
 <div id='resultado'></div>
