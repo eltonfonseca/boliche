@@ -10,15 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190608143306) do
+ActiveRecord::Schema.define(version: 20190601160315) do
 
   create_table "matches", force: :cascade do |t|
     t.string   "name"
     t.integer  "difficulty"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
     t.integer  "scoreP1"
     t.integer  "scoreP2"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "matches_users", id: false, force: :cascade do |t|
