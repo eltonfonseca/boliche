@@ -21,19 +21,6 @@ ActiveRecord::Schema.define(version: 20190601160315) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "matches_users", id: false, force: :cascade do |t|
-    t.integer "match_id", null: false
-    t.integer "user_id",  null: false
-  end
-
-  create_table "scores", force: :cascade do |t|
-    t.integer  "pontuacao"
-    t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_scores_on_user_id"
-  end
-
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "",    null: false
     t.string   "encrypted_password",     default: "",    null: false
@@ -50,6 +37,19 @@ ActiveRecord::Schema.define(version: 20190601160315) do
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["match_id"], name: "index_users_on_match_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
+  create_table "matches_users", id: false, force: :cascade do |t|
+    t.integer "match_id", null: false
+    t.integer "user_id",  null: false
+  end
+
+  create_table "scores", force: :cascade do |t|
+    t.integer  "pontuacao"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_scores_on_user_id"
   end
 
 end
