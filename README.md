@@ -84,7 +84,7 @@ $ docker-compose up &
 Após subir o container, vamos criar o banco de dados e rodar suas migrations
 
 ```bash
-$ docker-compose run web rails db:create db:migrate
+$ docker-compose run web rails db:create db:migrate db:seed
 ```
 
 Para derrubar o container e deletá-lo, bastamos rodar o seguinte comando: 

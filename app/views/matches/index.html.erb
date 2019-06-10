@@ -7,6 +7,8 @@
       <tr>
         <th scope="col">Nome da Partida</th>
         <th scope="col">Dificuldade</th>
+        <th scope="col">Você</th>
+        <th scope="col">Adversário</th>
         <th scope="col"></th>
         <th scope="col"></th>
       </tr>
@@ -16,8 +18,14 @@
         <tr>
           <td><%= match.name %></td>
           <td><%= match.difficulty %></td>
+          <td><%= match.scoreP1 %></td>
+          <td><%= match.scoreP2 %></td>
           <td><%= link_to 'Deletar',  match,  method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %></td>
-          <td><%= link_to 'Jogar',  match_home_index_path(match), class: 'btn btn-success' %></td>
+          <td><%= 
+            if match.scoreP1 == nil
+              link_to 'Jogar',  match_home_index_path(match), class: 'btn btn-success' 
+            end
+          %></td>
         </tr>
       <% end %>
     </tbody>

@@ -1,4 +1,4 @@
-class Jogada < ApplicationRecord
+class Jogada
     
     attr_accessor :up_pin
     attr_accessor :down_pin

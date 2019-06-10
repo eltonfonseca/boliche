@@ -1,4 +1,4 @@
-class Placar < ApplicationRecord
+class Placar
     attr_reader :frames
 
     # Construtor

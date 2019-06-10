@@ -1,4 +1,4 @@
-class Frame < ApplicationRecord
+class Frame
     attr_accessor :scoreTotal
     attr_accessor :jogadas
 
